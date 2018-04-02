@@ -24,7 +24,7 @@ describe("Client", function () {
 		before(function () {
 			client = new Client({
 				accountSid   : "fakeAccountSid",
-				apiToken : "fakeAuthToken"
+        authToken : "fakeAuthToken"
 			});
 
 			nock(baseUrl)
