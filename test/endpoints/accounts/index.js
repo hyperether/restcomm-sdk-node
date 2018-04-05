@@ -1,7 +1,7 @@
-var nock   = require("nock"),
-    should = require("should");
+var nock = require("nock"),
+  should = require("should");
 
-var testData     = require('./data');
+var testData = require('./data');
 var endpointPath = "/";
 
 module.exports = function (client) {
@@ -13,11 +13,18 @@ module.exports = function (client) {
         .persist()
         .get(endpointPath + testData.sid)
         .reply(200, testData.one);
-
       nock(client.baseUrl)
         .persist()
         .get(endpointPath)
         .reply(200, testData.array);
+      nock(client.baseUrl)
+        .persist()
+        .put(endpointPath + testData.sid)
+        .reply(200, testData.one);
+      nock(client.baseUrl)
+        .persist()
+        .put(endpointPath + testData.emailAddress)
+        .reply(200, testData.one);
 
     });
 
@@ -42,7 +49,22 @@ module.exports = function (client) {
         done();
       });
     });
-
+    it("should update password using account sid", function (done) {
+      return client.accounts.update({
+        Sid: testData.sid,
+        Password: 'newPasword'
+      }).then(function (res) {
+        res.should.eql(testData.one);
+        done();
+      });
+    });
+    it("should update password using account email", function (done) {
+      return client.accounts.update({
+        EmailAddress: testData.emailAddress
+      }).then(function (res) {
+        res.should.eql(testData.one);
+        done();
+      });
+    });
   });
-
 }
