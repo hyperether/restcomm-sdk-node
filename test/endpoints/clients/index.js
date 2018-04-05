@@ -23,6 +23,17 @@ module.exports = function (client) {
         .persist()
         .post(endpointPath)
         .reply(200, testData.one);
+
+      nock(client.baseUrl + '/fakeAccountSid')
+        .persist()
+        .put(endpointPath + testData.sid)
+        .reply(200, testData.oneUpdate)
+
+      nock(client.baseUrl + '/fakeAccountSid')
+        .persist()
+        .delete(endpointPath + testData.sid)
+        .reply(200, testData.oneUpdate)
+
     });
 
     it("should create new client", function (done) {
@@ -49,6 +60,20 @@ module.exports = function (client) {
     it("should return all clients", function (done) {
       return client.clients.all().then(function (res) {
         res.should.eql(testData.array);
+        done();
+      });
+    });
+
+    it("should update one client", function (done) {
+      return client.clients.update(testData.sid, testData.oneUpdate).then(function (res) {
+        res.should.eql(testData.oneUpdate);
+        done();
+      });
+    });
+
+    it("should delete one client", function (done) {
+      return client.clients.delete(testData.sid).then(function (res) {
+        res.should.eql(testData.oneUpdate);
         done();
       });
     });
