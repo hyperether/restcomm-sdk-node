@@ -31,6 +31,7 @@ describe("RestCommClient", function () {
         it("should test all endpoints", function (done) {
             require("./endpoints/clients")(client);
             require("./endpoints/accounts")(client);
+            require("./endpoints/availablePhoneNumbers")(client);
             done();
         });
 
