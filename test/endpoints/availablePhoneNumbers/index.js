@@ -1,17 +1,17 @@
-var nock = require("nock"),
-    should = require("should");
-
+var nock = require("nock");
+var should = require("should");
 var testData = require('./data');
+
 var defaultIsoCountry = "US"
 var endpointPath = "/AvailablePhoneNumbers/";
-var defaultIsoCountry = testData.isoCountryDefault +"/Local";
-var secondIsoCountry = testData.isoCountryDefault +"/Local";
+var defaultIsoCountry = testData.isoCountryDefault + "/Local";
+var secondIsoCountry = testData.isoCountryDefault + "/Local";
 module.exports = function (client) {
 
     describe("AvailablePhoneNumbers", function () {
 
         before(function () {
-            nock(client.baseUrl + "/fakeAccountSid")
+            nock(client.baseUrl +"/fakeAccountSid")
                 .persist()
                 .get(endpointPath + defaultIsoCountry)
                 .reply(200, testData.arrayDefault);
