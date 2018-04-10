@@ -27,7 +27,7 @@ module.exports = function (client) {
                 done();
             });
         });
-        it("should return array with diferent IsoCountry(DE)", function (done) {
+        it("should return array with different IsoCountry(DE)", function (done) {
             return client.availablePhoneNumbers.get().then(function (res) {
                 res.should.eql(testData.arraySecond);
                 done();

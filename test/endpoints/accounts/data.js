@@ -2,10 +2,12 @@ var sid   = "fakeAccountSid";
 var frendlyName = "fakeAccountFriendlyName";
 var emailAddress = "fakeEmail@40fake.com";
 var role = "fakeAccountRole";
+var organizationSid = 'fakeOrganizationSid'
 exports.sid    = sid;
 exports.frendlyName  = frendlyName;
 exports.emailAddress  = emailAddress;
-
+exports.invalidSid = "bad_sid";
+exports.organizationSid = organizationSid;
 exports.one       = {
   Sid: sid,
   FriendlyName: frendlyName,
@@ -24,6 +26,7 @@ exports.createOneError       = {
   EmailAddress:emailAddress,
   Role:undefined
 }
+
 exports.array = [
   {
     Sid: sid,
