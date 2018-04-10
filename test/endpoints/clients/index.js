@@ -1,7 +1,7 @@
-var nock   = require("nock"),
-    should = require("should");
+var nock = require("nock"),
+  should = require("should");
 
-var testData     = require('./data');
+var testData = require('./data');
 var endpointPath = "/Clients/";
 
 module.exports = function (client) {
@@ -37,7 +37,9 @@ module.exports = function (client) {
     });
 
     it("should create new client", function (done) {
-      return client.clients.create({FriendlyName: testData.frendlyName}).then(function (res) {
+      return client.clients.create({
+        FriendlyName: testData.frendlyName
+      }).then(function (res) {
         res.should.eql(testData.one);
         done();
       });
@@ -51,7 +53,7 @@ module.exports = function (client) {
     });
 
     it("should return none client for sid", function (done) {
-      return client.clients.get("bad_sid").then(function (res) {
+      return client.clients.get(testData.invalidSid).then(function (res) {
         should.not.exist(res);
         done();
       });
@@ -71,11 +73,25 @@ module.exports = function (client) {
       });
     });
 
+    it("should update none client", function (done) {
+      return client.clients.update(testData.invalidSid, testData.oneUpdate).then(function (res) {
+      }).catch(function(error){
+        error.status.should.eql(404);
+        return done() });
+    });
+
     it("should delete one client", function (done) {
       return client.clients.delete(testData.sid).then(function (res) {
         res.should.eql(testData.oneUpdate);
         done();
       });
+    });
+
+    it("should delete none client", function (done) {
+      return client.clients.delete(testData.invalidSid).then(function (res) {
+      }).catch(function(error){ 
+        error.status.should.eql(404);
+        return done()});
     });
 
   });
