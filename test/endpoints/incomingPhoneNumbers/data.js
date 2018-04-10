@@ -2,6 +2,8 @@ var accountSid = "fakeAccountSid";
 var frendlyName = "+12015946224";
 var phoneNumber = "12015946224";
 var phoneNumberSid = "fakeIncomingPhoneNumberSid";
+exports.invalidPhoneNumberSid= undefined;
+
 exports.accountSid = accountSid;
 exports.phoneNumberSid = phoneNumberSid;
 exports.object = {

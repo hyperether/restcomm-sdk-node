@@ -50,7 +50,8 @@ module.exports = function (client) {
       });
     });
     it("should not create new sub-account", function (done) {
-      return client.accounts.create(testData.createOneError).then(function (res) {}).catch(function (error) {
+      return client.accounts.create(testData.createOneError).then(function (res) {
+      }).catch(function (error) {
         error.statusCode.should.eql(404);
         return done()
       });
@@ -73,10 +74,11 @@ module.exports = function (client) {
       });
     });
 
-    it("should return none for sid", function (done) {
-      return client.accounts.get(testData.invalidSid).then(function (res) {
-        should.not.exist(res);
-        done();
+    it("should return none for invalid sid", function (done) {
+      return client.accounts.get({ Sid: testData.invalidSid }).then(function (res) {
+      }).catch(function (error) {
+        error.statusCode.should.eql(404);
+        return done();
       });
     });
 
@@ -103,7 +105,7 @@ module.exports = function (client) {
     it("should not update account", function (done) {
       return client.accounts.update({
         Sid: testData.invalidSid
-      }).then(function (res) {}).catch(function (error) {
+      }).then(function (res) { }).catch(function (error) {
         error.statusCode.should.eql(404);
         return done()
       });
