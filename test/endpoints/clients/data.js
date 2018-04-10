@@ -4,6 +4,7 @@ var password = "fakePassword";
 
 exports.sid    = sid;
 exports.frendlyName  = frendlyName;
+exports.invalidSid = "bad_sid";
 exports.one       = {
   Sid: sid,
   FriendlyName: frendlyName
