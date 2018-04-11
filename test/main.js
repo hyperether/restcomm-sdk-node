@@ -34,7 +34,7 @@ describe("RestCommClient", function () {
             require("./endpoints/availablePhoneNumbers")(client);
             require("./endpoints/incomingPhoneNumbers")(client);
             require("./endpoints/sms")(client);
-            
+            require("./endpoints/usageRecords")(client);
             done();
         });
 

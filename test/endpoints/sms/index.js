@@ -23,8 +23,6 @@ module.exports = function (client) {
                 .reply(200, testData.oneSuccess);
 
         })
-
-
         it("should return object with array of all sms", function (done) {
             return client.sms.all().then(function (res) {
                 res.should.eql(testData.object);
