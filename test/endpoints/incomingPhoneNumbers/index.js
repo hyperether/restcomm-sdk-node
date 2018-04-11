@@ -42,7 +42,7 @@ module.exports = function (client) {
         it("should return none phone numbers for invalid phoneNumberSid", function (done) {
             return client.incomingPhoneNumbers.get(testData.invalidPhoneNumberSid).then(function (res) {
             }).catch(function (error) {
-                error.statusCode.should.eql(404);
+                error.statusCode.should.eql(500);
                 return done();
             });
         });
@@ -61,7 +61,7 @@ module.exports = function (client) {
         it("should delete none phone numbers for invalid phoneNumberSid", function (done) {
             return client.incomingPhoneNumbers.delete(testData.invalidPhoneNumberSid).then(function (res) {
             }).catch(function (error) {
-                error.statusCode.should.eql(404);
+                error.statusCode.should.eql(500);
                 return done();
             });
         });

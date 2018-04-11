@@ -77,7 +77,7 @@ module.exports = function (client) {
     it("should return none for invalid sid", function (done) {
       return client.accounts.get({ Sid: testData.invalidSid }).then(function (res) {
       }).catch(function (error) {
-        error.statusCode.should.eql(404);
+        error.statusCode.should.eql(500);
         return done();
       });
     });
@@ -104,9 +104,10 @@ module.exports = function (client) {
 
     it("should not update account", function (done) {
       return client.accounts.update({
-        Sid: testData.invalidSid
+        Sid: testData.invalidSid,
+        FriendlyName: testData.frendlyName,
       }).then(function (res) { }).catch(function (error) {
-        error.statusCode.should.eql(404);
+        error.statusCode.should.eql(500);
         return done()
       });
     })
