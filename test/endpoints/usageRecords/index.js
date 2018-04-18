@@ -6,7 +6,7 @@ var endpointPath = "/Usage/Records/";
 
 module.exports = function (client) {
 
-    describe("SMS", function () {
+    describe("UsageRecords", function () {
 
         before(function () {
             nock(client.baseUrl + "/fakeAccountSid")
