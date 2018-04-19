@@ -55,7 +55,6 @@ module.exports = function (client) {
         it("should not add new number", function (done) {
             return client.incomingPhoneNumbers.create(testData.oneError).then(function (res) {
             }).catch(function (error) {
-                console.log('ERRROR',error)
                 error.statusCode.should.eql(404);
                 return done();
             });
