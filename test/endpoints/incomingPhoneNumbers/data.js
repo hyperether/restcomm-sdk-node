@@ -23,8 +23,11 @@ exports.object = {
         }
     ]
 };
-exports.one = {
-    account_sid:accountSid,
+exports.oneSuccess = {
     FrendlyName: frendlyName,
     PhoneNumber: phoneNumber
+}
+exports.oneError = {
+    FrendlyName: frendlyName,
+    PhoneNumber: undefined
 }
