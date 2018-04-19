@@ -16,15 +16,15 @@ module.exports = function (client) {
             nock(client.baseUrl + "/fakeAccountSid")
                 .persist()
                 .post(endpointPath)
-                .reply(200, testData.one);
+                .reply(200, testData.oneSuccess);
             nock(client.baseUrl + "/fakeAccountSid")
                 .persist()
                 .get(endpointPath + testData.phoneNumberSid)
-                .reply(200, testData.one);
+                .reply(200, testData.oneSuccess);
             nock(client.baseUrl + "/fakeAccountSid")
                 .persist()
                 .delete(endpointPath + testData.phoneNumberSid)
-                .reply(200, testData.one);
+                .reply(200, testData.oneSuccess);
         });
 
         it("should return object with array of all incoming phone numbers", function (done) {
@@ -35,7 +35,7 @@ module.exports = function (client) {
         });
         it("should return one phone number", function (done) {
             return client.incomingPhoneNumbers.get(testData.phoneNumberSid).then(function (res) {
-                res.should.eql(testData.one);
+                res.should.eql(testData.oneSuccess);
                 done();
             });
         });
@@ -47,14 +47,22 @@ module.exports = function (client) {
             });
         });
         it("should add new number", function (done) {
-            return client.incomingPhoneNumbers.create(testData.one).then(function (res) {
-                res.should.eql(testData.one);
+            return client.incomingPhoneNumbers.create(testData.oneSuccess).then(function (res) {
+              res.should.eql(testData.oneSuccess)
                 done();
+            });
+        });
+        it("should not add new number", function (done) {
+            return client.incomingPhoneNumbers.create(testData.oneError).then(function (res) {
+            }).catch(function (error) {
+                console.log('ERRROR',error)
+                error.statusCode.should.eql(404);
+                return done();
             });
         });
         it("should delete number", function (done) {
             return client.incomingPhoneNumbers.delete(testData.phoneNumberSid).then(function (res) {
-                res.should.eql(testData.one);
+                res.should.eql(testData.oneSuccess);
                 done();
             });
         });
