@@ -7,26 +7,26 @@ exports.isoCountryDefault  = isoCountryDefault;
 exports.isoCountrySecond = isoCountryDefault;
 exports.arrayDefault = [
   {
-    FrendlyName: frendlyName,
-    PhoneNumber: phoneNumber,
-    IsoCountry:isoCountrySecond
+    frendlyName: frendlyName,
+    phoneNumber: phoneNumber,
+    isoCountry:isoCountrySecond
   },
   {
-    FrendlyName: "+12015946244",
-    PhoneNumber: "12015946244",
-    IsoCountry: isoCountrySecond
+    frendlyName: "+12015946244",
+    phoneNumber: "12015946244",
+    isoCountry: isoCountrySecond
   }
 ];
 
 exports.arraySecond = [
     {
-      FrendlyName: frendlyName,
-      PhoneNumber: phoneNumber,
-      IsoCountry:isoCountrySecond
+      frendlyName: frendlyName,
+      phoneNumber: phoneNumber,
+      isoCountry:isoCountrySecond
     },
     {
-      FrendlyName: "+12015946244",
-      PhoneNumber: "12015946244",
-      IsoCountry: isoCountrySecond
+      frendlyName: "+12015946244",
+      phoneNumber: "12015946244",
+      isoCountry: isoCountrySecond
     }
   ];

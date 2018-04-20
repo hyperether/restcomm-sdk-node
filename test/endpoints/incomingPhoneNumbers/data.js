@@ -13,13 +13,13 @@ exports.object = {
     total: 2,
     incomingPhoneNumbers: [{
             sid: "AD#54325A12321452452",
-            FrendlyName: frendlyName,
-            PhoneNumber: phoneNumber
+            frendlyName: frendlyName,
+            phoneNumber: phoneNumber
         },
         {
             sid: "YTA1253232452452",
-            FrendlyName: "+12015946244",
-            PhoneNumber: "12015946244"
+            frendlyName: "+12015946244",
+            phoneNumber: "12015946244"
         }
     ]
 };
@@ -30,4 +30,11 @@ exports.oneSuccess = {
 exports.oneError = {
     FrendlyName: frendlyName,
     PhoneNumber: undefined
+}
+exports.oneSuccessResponse = {
+        sid: "AD#54325A12321452452",
+        friendly_name: frendlyName,
+        phone_number: phoneNumber,  
+        account_sid: "ACc2739b9c47e49726e75809660dfbc41a",
+    
 }
