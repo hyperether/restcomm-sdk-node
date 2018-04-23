@@ -1,24 +1,30 @@
-
 var smsMessageSid = "fakeSmsMessageSid";
 exports.smsMessageSid = smsMessageSid;
-exports.invalidSmsMessageSid= undefined;
+exports.invalidSmsMessageSid = undefined;
 
-exports.oneSuccess= {
-    From:"Jelena",
-    To:"+381644201552",
-    Body:"Hello message..."
+exports.oneSuccess = {
+    From: "Jelena",
+    To: "+381644201552",
+    Body: "Hello message..."
 }
-exports.oneError= {
-    From:null,
-    To:null,
-    Body:"Hello message..."
+exports.oneError = {
+    From: null,
+    To: null,
+    Body: "Hello message..."
+}
+exports.response = {
+    from: "Jelena",
+    to: "+381644201552",
+    body: "Hello message...",
+    account_sid: 'ACc2739b9c47e49726e75809660dfbc41a',
+    status: "sending"
 }
 exports.object = {
     page: 0,
     num_pages: 0,
     page_size: 50,
     total: 2,
-    "messages": [{
+    messages: [{
             sid: "SM1e877eaf894040fca27ef373eb6e4cd3",
             account_sid: "ACc2739b9c47e49726e75809660dfbc41a",
             from: "+381638438906",

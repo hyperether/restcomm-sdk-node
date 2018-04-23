@@ -4,9 +4,10 @@ var password = "fakePassword";
 
 exports.sid    = sid;
 exports.frendlyName  = frendlyName;
-exports.one       = {
-  Sid: sid,
-  FriendlyName: frendlyName
+exports.response       = {
+  sid: sid,
+  friendly_name: frendlyName,
+  password:password
 }
 exports.oneUpdate = {
   Sid: sid,

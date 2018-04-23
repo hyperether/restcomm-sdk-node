@@ -16,11 +16,11 @@ module.exports = function (client) {
             nock(client.baseUrl + "/fakeAccountSid")
                 .persist()
                 .post(endpointPath)
-                .reply(200, testData.oneSuccess);
+                .reply(200, testData.response);
             nock(client.baseUrl + "/fakeAccountSid")
                 .persist()
                 .get(endpointPath + testData.callSid)
-                .reply(200, testData.oneSuccess);
+                .reply(200, testData.response);
 
         });
         it("should return all calls", function (done) {
@@ -30,8 +30,8 @@ module.exports = function (client) {
             });
         });
         it("should create call", function (done) {
-            return client.calls.create(testData.oneCreate).then(function (res) {
-                res.should.eql(testData.oneSuccess);
+            return client.calls.create(testData.oneSuccess).then(function (res) {
+                res.should.eql(testData.response);
                 done();
             });
         });
@@ -43,7 +43,7 @@ module.exports = function (client) {
         });
         it("should return one call", function (done) {
             return client.calls.get(testData.callSid).then(function (res) {
-                res.should.eql(testData.oneSuccess);
+                res.should.eql(testData.response);
                 done();
             });
         });

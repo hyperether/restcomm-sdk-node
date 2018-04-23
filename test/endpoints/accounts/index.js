@@ -16,23 +16,23 @@ module.exports = function (client) {
       nock(client.baseUrl)
         .persist()
         .post(endpointPath)
-        .reply(200, testData.one);
+        .reply(200, testData.response);
       nock(client.baseUrl)
         .persist()
         .get(endpointPath + testData.sid)
-        .reply(200, testData.one);
+        .reply(200, testData.response);
       nock(client.baseUrl)
         .persist()
         .get(endpointPath + testData.emailAddress)
-        .reply(200, testData.one);
+        .reply(200, testData.response);
       nock(client.baseUrl)
         .persist()
         .put(endpointPath + testData.sid)
-        .reply(200, testData.one);
+        .reply(200, testData.response);
       nock(client.baseUrl)
         .persist()
         .put(endpointPath + testData.emailAddress)
-        .reply(200, testData.one);
+        .reply(200, testData.response);
     });
 
 
@@ -45,7 +45,7 @@ module.exports = function (client) {
 
     it("should create new sub-account", function (done) {
       return client.accounts.create(testData.createOneSuccess).then(function (res) {
-        res.should.eql(testData.one);
+        res.should.eql(testData.response);
         done();
       });
     });
@@ -61,7 +61,7 @@ module.exports = function (client) {
       return client.accounts.get({
         Sid: testData.sid
       }).then(function (res) {
-        res.should.eql(testData.one);
+        res.should.eql(testData.response);
         done();
       });
     });
@@ -69,7 +69,7 @@ module.exports = function (client) {
       return client.accounts.get({
         EmailAddress: testData.emailAddress
       }).then(function (res) {
-        res.should.eql(testData.one);
+        res.should.eql(testData.response);
         done();
       });
     });
@@ -87,7 +87,7 @@ module.exports = function (client) {
         Sid: testData.sid,
         Password: 'newPasword'
       }).then(function (res) {
-        res.should.eql(testData.one);
+        res.should.eql(testData.response);
         done();
       });
     });
@@ -97,7 +97,7 @@ module.exports = function (client) {
         EmailAddress: testData.emailAddress,
         Password: 'newPasword'
       }).then(function (res) {
-        res.should.eql(testData.one);
+        res.should.eql(testData.response);
         done();
       });
     });
@@ -116,7 +116,7 @@ module.exports = function (client) {
         Sid: testData.sid,
         Status: 'closed'
       }).then(function (res) {
-        res.should.eql(testData.one);
+        res.should.eql(testData.response);
         done();
       });
     });

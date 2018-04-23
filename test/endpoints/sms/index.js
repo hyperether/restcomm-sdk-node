@@ -16,11 +16,11 @@ module.exports = function (client) {
             nock(client.baseUrl + "/fakeAccountSid")
                 .persist()
                 .get(endpointPath + testData.smsMessageSid)
-                .reply(200, testData.oneSuccess);
+                .reply(200, testData.response);
             nock(client.baseUrl + "/fakeAccountSid")
                 .persist()
                 .post(endpointPath)
-                .reply(200, testData.oneSuccess);
+                .reply(200, testData.response);
 
         })
         it("should return object with array of all sms", function (done) {
@@ -31,7 +31,7 @@ module.exports = function (client) {
         });
         it("should return one sms", function (done) {
             return client.sms.get(testData.smsMessageSid).then(function (res) {
-                res.should.eql(testData.oneSuccess);
+                res.should.eql(testData.response);
                 done();
             });
         });
@@ -44,7 +44,7 @@ module.exports = function (client) {
         });
         it("should send message", function (done) {
             return client.sms.create(testData.oneSuccess).then(function (res) {
-                res.should.eql(testData.oneSuccess);
+                res.should.eql(testData.response);
                 done();
             });
         });

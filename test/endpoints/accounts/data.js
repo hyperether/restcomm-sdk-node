@@ -10,12 +10,7 @@ exports.emailAddress  = emailAddress;
 exports.invalidSid = undefined;
 exports.organizationSid = organizationSid;
 
-exports.one       = {
-  Sid: sid,
-  FriendlyName: frendlyName,
-  EmailAddress:emailAddress,
-  Role:role
-}
+
 exports.createOneSuccess       = {
   FriendlyName: frendlyName,
   Password:"NewPassword",
@@ -28,18 +23,23 @@ exports.createOneError       = {
   EmailAddress:emailAddress,
   Role:undefined
 }
-
+exports.response       = {
+  sid: sid,
+  friendly_name: frendlyName,
+  email_address:emailAddress,
+  role:role
+}
 exports.array = [
   {
-    Sid: sid,
-    FriendlyName: frendlyName,
-    EmailAddress:emailAddress,
-    Role:role
+    sid: sid,
+    friendly_name: frendlyName,
+    email_address:emailAddress,
+    role:role
   },
   {
-    Sid: "secondFakeAccountSid",
-    FriendlyName: "secondFakeAccountFriendlyName",
-    EmailAddress:"secondFakeEmail@fake.com",
-    Role:role
+    sid: "secondFakeAccountSid",
+    friendly_name: "secondFakeAccountFriendlyName",
+    email_address:"secondFakeEmail@fake.com",
+    role:role
   }
 ];

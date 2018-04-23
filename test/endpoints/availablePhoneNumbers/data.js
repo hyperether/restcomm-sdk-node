@@ -4,7 +4,7 @@ var isoCountryDefault = "US";
 var isoCountrySecond = "DE";
 
 exports.isoCountryDefault  = isoCountryDefault;
-exports.isoCountrySecond = isoCountryDefault;
+exports.isoCountrySecond = isoCountrySecond;
 exports.arrayDefault = [
   {
     frendlyName: frendlyName,

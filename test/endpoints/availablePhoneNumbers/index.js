@@ -5,7 +5,7 @@ var testData = require('./data');
 var defaultIsoCountry = "US"
 var endpointPath = "/AvailablePhoneNumbers/";
 var defaultIsoCountry = testData.isoCountryDefault + "/Local";
-var secondIsoCountry = testData.isoCountryDefault + "/Local";
+var secondIsoCountry = testData.isoCountrySecond + "/Local";
 module.exports = function (client) {
 
     describe("AvailablePhoneNumbers", function () {
@@ -22,13 +22,13 @@ module.exports = function (client) {
         });
 
         it("should return array with default IsoCountry(US)", function (done) {
-            return client.availablePhoneNumbers.get().then(function (res) {
+            return client.availablePhoneNumbers.get(testData.isoCountryDefault).then(function (res) {
                 res.should.eql(testData.arrayDefault);
                 done();
             });
         });
         it("should return array with different IsoCountry(DE)", function (done) {
-            return client.availablePhoneNumbers.get().then(function (res) {
+            return client.availablePhoneNumbers.get(testData.isoCountrySecond).then(function (res) {
                 res.should.eql(testData.arraySecond);
                 done();
             });

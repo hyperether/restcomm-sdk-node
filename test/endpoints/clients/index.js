@@ -12,7 +12,7 @@ module.exports = function (client) {
       nock(client.baseUrl + "/fakeAccountSid")
         .persist()
         .get(endpointPath + testData.sid)
-        .reply(200, testData.one);
+        .reply(200, testData.response);
 
       nock(client.baseUrl + "/fakeAccountSid")
         .persist()
@@ -22,7 +22,7 @@ module.exports = function (client) {
       nock(client.baseUrl + "/fakeAccountSid")
         .persist()
         .post(endpointPath)
-        .reply(200, testData.one);
+        .reply(200, testData.response);
 
       nock(client.baseUrl + '/fakeAccountSid')
         .persist()
@@ -38,14 +38,14 @@ module.exports = function (client) {
 
     it("should create new client", function (done) {
       return client.clients.create({FriendlyName: testData.frendlyName}).then(function (res) {
-        res.should.eql(testData.one);
+        res.should.eql(testData.response);
         done();
       });
     });
 
     it("should return one client for sid", function (done) {
       return client.clients.get(testData.sid).then(function (res) {
-        res.should.eql(testData.one);
+        res.should.eql(testData.response);
         done();
       });
     });

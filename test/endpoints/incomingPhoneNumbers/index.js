@@ -16,15 +16,15 @@ module.exports = function (client) {
             nock(client.baseUrl + "/fakeAccountSid")
                 .persist()
                 .post(endpointPath)
-                .reply(200, testData.oneSuccessResponse);
+                .reply(200, testData.response);
             nock(client.baseUrl + "/fakeAccountSid")
                 .persist()
                 .get(endpointPath + testData.phoneNumberSid)
-                .reply(200, testData.oneSuccessResponse);
+                .reply(200, testData.response);
             nock(client.baseUrl + "/fakeAccountSid")
                 .persist()
                 .delete(endpointPath + testData.phoneNumberSid)
-                .reply(200, testData.oneSuccessResponse);
+                .reply(200, testData.response);
         });
 
         it("should return object with array of all incoming phone numbers", function (done) {
@@ -35,7 +35,7 @@ module.exports = function (client) {
         });
         it("should return one phone number", function (done) {
             return client.incomingPhoneNumbers.get(testData.phoneNumberSid).then(function (res) {
-                res.should.eql(testData.oneSuccessResponse);
+                res.should.eql(testData.response);
                 done();
             });
         });
@@ -48,7 +48,7 @@ module.exports = function (client) {
         });
         it("should add new number", function (done) {
             return client.incomingPhoneNumbers.create(testData.oneSuccess).then(function (res) {
-              res.should.eql(testData.oneSuccessResponse)
+              res.should.eql(testData.response)
                 done();
             });
         });
@@ -61,7 +61,7 @@ module.exports = function (client) {
         });
         it("should delete number", function (done) {
             return client.incomingPhoneNumbers.delete(testData.phoneNumberSid).then(function (res) {
-                res.should.eql(testData.oneSuccessResponse);
+                res.should.eql(testData.response);
                 done();
             });
         });

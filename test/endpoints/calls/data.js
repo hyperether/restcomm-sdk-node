@@ -2,7 +2,18 @@ var callSid = "fakeCallSid";
 exports.callSid = callSid;
 exports.invalidCallSid = undefined;
 
+
+exports.oneError = {
+    From: null,
+    To: 'marko',
+    Url:null
+}
 exports.oneSuccess = {
+    From: "nikola",
+    To: "marko",
+    Url:"http://127.0.0.1:8080/restcomm/demos/hello-play.xml"
+}
+exports.response = {
     sid: "ID8deb35fc5121429fa96635ae",
     InstanceId: "ID8deb35fc5121429fa96",
     date_created: "Tue, 3 Apr 2018 12:55:22 +0000",
@@ -15,16 +26,6 @@ exports.oneSuccess = {
     price_unit: "USD",
     direction: "Client-To-Client",
     caller_name: "nikola",
-}
-exports.oneError = {
-    From: null,
-    To: 'marko',
-    Url:null
-}
-exports.oneCreate = {
-    From: "nikola",
-    To: "marko",
-    Url:"http://127.0.0.1:8080/restcomm/demos/hello-play.xml"
 }
 exports.object = {
     page: 0,

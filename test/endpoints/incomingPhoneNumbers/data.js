@@ -31,7 +31,7 @@ exports.oneError = {
     FrendlyName: frendlyName,
     PhoneNumber: undefined
 }
-exports.oneSuccessResponse = {
+exports.response = {
         sid: "AD#54325A12321452452",
         friendly_name: frendlyName,
         phone_number: phoneNumber,  
