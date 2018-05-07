@@ -1,10 +1,10 @@
-<a name="RestCommClient"></a>
+<a name="Client"></a>
 
-## RestCommClient
+## Client
 **Kind**: global class  
-<a name="new_RestCommClient_new"></a>
+<a name="new_Client_new"></a>
 
-### new RestCommClient(config)
+### new exports.Client(config)
 RestCp,,
 
 
