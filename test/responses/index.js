@@ -14,7 +14,12 @@ module.exports = (function () {
 
         it("should throw unsupported tag exception", function (done) {
             var r = new Response();
-            (function(){ r.add("None", "", {}) }).should.throw(UnsupportedResponseError, {message: "None response tag is not supported", name: UnsupportedResponseError});
+            (function () {
+                r.add("None", "", {})
+            }).should.throw(UnsupportedResponseError, {
+                message: "None response tag is not supported",
+                name: UnsupportedResponseError
+            });
             done();
         });
         it("should return empty response", function (done) {
@@ -38,6 +43,42 @@ module.exports = (function () {
             var r = new Response();
             r.addSay(testData.BODIES.SAY, testData.ATTRIBUTES.SAY);
             r.toXML().should.equal(testData.say);
+            done();
+        });
+        it("should return number response", function (done) {
+            var r = new Response();
+            r.addNumber(testData.BODIES.NUMBER, testData.ATTRIBUTES.NUMBER);
+            r.toXML().should.equal(testData.number);
+            done();
+        });
+        it("should return client response", function (done) {
+            var r = new Response();
+            r.addClient(testData.BODIES.CLIENT, testData.ATTRIBUTES.CLIENT);
+            r.toXML().should.equal(testData.client);
+            done();
+        });
+        it("should return sip response", function (done) {
+            var r = new Response();
+            r.addSip(testData.BODIES.SIP, testData.ATTRIBUTES.SIP);
+            r.toXML().should.equal(testData.sip);
+            done();
+        });
+        it("should return redirect response", function (done) {
+            var r = new Response();
+            r.addRedirect(testData.BODIES.REDIRECT, testData.ATTRIBUTES.REDIRECT);
+            r.toXML().should.equal(testData.redirect);
+            done();
+        });
+        it("should return sms response", function (done) {
+            var r = new Response();
+            r.addSms(testData.BODIES.SMS, testData.ATTRIBUTES.SMS);
+            r.toXML().should.equal(testData.sms);
+            done();
+        });
+        it("should return reject response", function (done) {
+            var r = new Response();
+            r.addReject(testData.ATTRIBUTES.REJECT);
+            r.toXML().should.equal(testData.reject);
             done();
         });
     });
