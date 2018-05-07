@@ -82,21 +82,27 @@ exports.say = js2xmlparser.parse('Response', {
     }
 });
 exports.number = js2xmlparser.parse('Response', {
-    Number: {
-        "#": BODIES.NUMBER,
-        "@": ATTRIBUTES.NUMBER
+    Dial: {
+        Number: {
+            "#": BODIES.NUMBER,
+            "@": ATTRIBUTES.NUMBER
+        }
     }
 });
 exports.client = js2xmlparser.parse('Response', {
-    Client: {
-        "#": BODIES.CLIENT,
-        "@": ATTRIBUTES.CLIENT
+    Dial: {
+        Client: {
+            "#": BODIES.CLIENT,
+            "@": ATTRIBUTES.CLIENT
+        }
     }
 });
 exports.sip = js2xmlparser.parse('Response', {
-    Sip: {
-        "#": BODIES.SIP,
-        "@": ATTRIBUTES.SIP
+    Dial: {
+        Sip: {
+            "#": BODIES.SIP,
+            "@": ATTRIBUTES.SIP
+        }
     }
 });
 exports.redirect = js2xmlparser.parse('Response', {

@@ -17,7 +17,7 @@ module.exports = (function () {
             (function () {
                 r.add("None", "", {})
             }).should.throw(UnsupportedResponseError, {
-                message: "None response tag is not supported",
+                message: "None Nested element is not supported",
                 name: UnsupportedResponseError
             });
             done();
@@ -47,19 +47,22 @@ module.exports = (function () {
         });
         it("should return number response", function (done) {
             var r = new Response();
-            r.addNumber(testData.BODIES.NUMBER, testData.ATTRIBUTES.NUMBER);
+            var d = r.addDial();
+            d.addNumber(testData.BODIES.NUMBER, testData.ATTRIBUTES.NUMBER);
             r.toXML().should.equal(testData.number);
             done();
         });
         it("should return client response", function (done) {
             var r = new Response();
-            r.addClient(testData.BODIES.CLIENT, testData.ATTRIBUTES.CLIENT);
+            var d = r.addDial();
+            d.addClient(testData.BODIES.CLIENT, testData.ATTRIBUTES.CLIENT);
             r.toXML().should.equal(testData.client);
             done();
         });
         it("should return sip response", function (done) {
             var r = new Response();
-            r.addSip(testData.BODIES.SIP, testData.ATTRIBUTES.SIP);
+            var d = r.addDial();
+            d.addSip(testData.BODIES.SIP, testData.ATTRIBUTES.SIP);
             r.toXML().should.equal(testData.sip);
             done();
         });
