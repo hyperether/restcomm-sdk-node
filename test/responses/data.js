@@ -50,6 +50,9 @@ var ATTRIBUTES = {
         "action":"http://...",
         "method": "POST",
         "statusCallback": "http://..."
+    },
+    PAUSE: {
+        "length": 5
     }
 };
 
@@ -120,5 +123,10 @@ exports.sms = js2xmlparser.parse('Response', {
 exports.reject = js2xmlparser.parse('Response', {
     Reject: {
         "@": ATTRIBUTES.REJECT
+    }
+});
+exports.pause = js2xmlparser.parse('Response', {
+    Pause: {
+        "@": ATTRIBUTES.PAUSE
     }
 });

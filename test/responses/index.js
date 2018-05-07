@@ -84,5 +84,11 @@ module.exports = (function () {
             r.toXML().should.equal(testData.reject);
             done();
         });
+        it("should return pause response", function (done) {
+            var r = new Response();
+            r.addPause(testData.ATTRIBUTES.PAUSE);
+            r.toXML().should.equal(testData.pause);
+            done();
+        });
     });
 })();
