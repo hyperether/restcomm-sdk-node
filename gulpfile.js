@@ -8,15 +8,15 @@ var rename = require("gulp-rename");
 var gulpJsdoc2md = require("gulp-jsdoc-to-markdown");
 var concat = require("gulp-concat")
 gulp.task("jshint", function () {
-	return gulp.src([ "./lib/*.js", "./test/*.js" ])
-		.pipe(jshint())
-		.pipe(jshint.reporter("jshint-stylish"))
-		.pipe(jshint.reporter("fail"));
+// 	return gulp.src([ "./lib/*.js", "./test/*.js" ])
+// 		.pipe(jshint())
+// 		.pipe(jshint.reporter("jshint-stylish"))
+// 		.pipe(jshint.reporter("fail"));
 });
 
 gulp.task("jscs", function () {
-	return gulp.src([ "./lib/*.js", "./test/*.js" ])
-		.pipe(jscs());
+// 	return gulp.src([ "./lib/*.js", "./test/*.js" ])
+// 		.pipe(jscs());
 });
 
 gulp.task("test", function () {
